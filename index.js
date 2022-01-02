@@ -3,6 +3,9 @@ const app = express();
 const http = require('http'); //import http
 const { hostname } = require('os');
 const createServer = http.createServer(app); //server create
+// Socket.io import and server
+const {Server} = require('socket.io');
+const io = new Server(createServer); //Object create of Server
 
 // client side index.html file integrate
 app.get('/', function(req, res) {
