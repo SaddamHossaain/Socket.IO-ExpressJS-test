@@ -9,6 +9,12 @@ const io = new Server(createServer); //Object create of Server
 // User in/out detect
 io.on('connection', function(socket) {
     console.log("new User connected!");
+    // Data Message Send to Client Side
+    setTimeout(function() {
+        socket.send("Data Send Server to Client (Event)")
+    },10000)
+
+
     socket.on('disconnect', function() {
         console.log('User Disconnected!');
     })
@@ -21,6 +27,7 @@ app.get('/', function(req, res) {
 
 // server run
 const { hostname } = require('os');
+const { TIMEOUT } = require('dns');
 createServer.listen(3000, hostname, function() {
     console.log('Server run @ 3000 port');
 });

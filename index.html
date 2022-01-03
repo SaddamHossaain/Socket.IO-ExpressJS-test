@@ -14,6 +14,10 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             let socket = io();
+            // Data message Catch from Server Side
+            socket.on('message', function(msg) {
+                document.write(msg);
+            })
         </script>
     </body>
 </html>
